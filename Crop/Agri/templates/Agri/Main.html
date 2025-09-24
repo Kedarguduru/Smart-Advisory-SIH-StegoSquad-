@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <title>CropConnect - Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!--pages separation-->
+    <script src="{% static 'js/Navigation tags/home.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/crops.js' %}"></script>
+    <!-- Then the controller logic -->
+    <script src="{% static 'js/horticulture/horticulture.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/tropical fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/subtropical fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/citrus fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/temperature fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/vine fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/berry fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/minor fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/fruits/exotic fruits.js' %}"></script>
+    <script src="{% static 'js/horticulture/vegetables/vegetables.js' %}"></script>
+    <script src="{% static 'js/horticulture/flowers/flowers.js' %}"></script>
+    <script src="{% static 'js/horticulture/herbs/herbs.js' %}"></script>
+    <script src="{% static 'js/horticulture/spices/spices.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/production.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/protection.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/schemes.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/contract.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/contract-init.js'%}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/Navigation tags/customer-care.js' %}"></script>
+</head>
+<body>
+    <div id="root"></div> 
+    <nav class="nav-container">
+        <div class="logo" onclick="showPage('intro')">
+            <img src="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/Pics/p5pgabvnxn7nfh1mj3sf" alt="Company Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('crops')">Crops</a></li>
+            <li><a onclick="showPage('production')">Production</a></li>
+            <li><a onclick="showPage('protection')">Protection</a> </li>
+            <li><a onclick="showPage('schemes')">Schemes/Loan</a></li>
+            <li><a onclick="showPage('contract')">Contract</a></li>
+            <li><a onclick="showPage('customer-care')">Customer Care</a></li>
+            <li><a onclick="toggleChatbot()">Chatbot 🤖</a></li>
+        </ul>
+        <button id="backButton">Go Back</button>
+
+        <div class="profile-container" onclick="toggleDropdown()">
+            <div class="profile-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Profile">
+            </div>
+            <div class="dropdown-menu">
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-area" id="content">
+        <h1>Welcome to CropConnect</h1>
+        <p>This is the intro page. Click the navigation links above to explore!</p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>© 2025 CropConnect. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+       window.pages = {
+    'intro': `
+        <h1 style="text-align: center;">Namasthe Swagatham 🙏</h1>
+        <p style="text-align: center;">Please wait, redirecting to the homepage...</p>
+    `,
+           window.pages = Object.assign(window.pages || {}, pages);
+
+'apple': `
+    <div class="crops-container">
+        <h1>Apple</h1>
+        <p>Best practices for growing apples.</p>
+        <ul>
+            <li>Plant in cool climates with well-drained soil.</li>
+            <li>Prune regularly to encourage growth.</li>
+            <li>Protect from pests and diseases.</li>
+        </ul>
+    </div>
+`,
+
+'banana': `
+    <div class="crops-container">
+        <h1>Banana</h1>
+        <p>How to cultivate high-yield bananas.</p>
+        <ul>
+            <li>Requires warm, humid climate.</li>
+            <li>Provide ample water but avoid waterlogging.</li>
+            <li>Fertilize with potassium-rich nutrients.</li>
+        </ul>
+    </div>
+`,
+'papaya': `
+    <div class="crops-container">
+        <h1>Papaya</h1>
+        <p>How to cultivate high-yield bananas.</p>
+        <ul>
+            <li>Requires warm, humid climate.</li>
+            <li>Provide ample water but avoid waterlogging.</li>
+            <li>Fertilize with potassium-rich nutrients.</li>
+        </ul>
+    </div>
+`,
+
+'Orange': `
+    <div class="crops-container">
+        <h1>orange</h1>
+        <p>How to cultivate high-yield bananas.</p>
+        <ul>
+            <li>Requires warm, humid climate.</li>
+            <li>Provide ample water but avoid waterlogging.</li>
+            <li>Fertilize with potassium-rich nutrients.</li>
+        </ul>
+    </div>
+`,
+
+'Rose': `
+    <div class="crops-container">
+        <h1>Rose</h1>
+        <p>Best ways to grow beautiful roses.</p>
+        <ul>
+            <li>Provide full sunlight.</li>
+            <li>Water deeply but not too frequently.</li>
+            <li>Use organic compost for better blooms.</li>
+        </ul>
+    </div>
+`,
+
+
+'basil': `
+    <div class="crops-container">
+        <h1>Basil</h1>
+        <p>How to cultivate basil successfully.</p>
+        <ul>
+            <li>Requires warm temperatures.</li>
+            <li>Water regularly but avoid wet soil.</li>
+            <li>Prune to encourage bushy growth.</li>
+        </ul>
+    </div>
+`,
+
+
+'turmeric': `
+    <div class="crops-container">
+        <h1>Turmeric</h1>
+        <p>Steps to grow turmeric successfully.</p>
+        <ul>
+            <li>Plant in warm, humid climates.</li>
+            <li>Use well-drained, fertile soil.</li>
+            <li>Harvest after 7-10 months.</li>
+        </ul>
+    </div>
+`,
+
+'chilli': `
+    <div class="crops-container">
+        <h1>Chilli</h1>
+        <p>Steps to grow Chilli successfully.</p>
+        <ul>
+            <li>Plant in warm, humid climates.</li>
+            <li>Use well-drained, fertile soil.</li>
+            <li>Harvest after 7-10 months.</li>
+        </ul>
+    </div>
+`,
+
+        };
+       function showPage(page) {
+        var content = window.pages[page] || window.pages['intro'] || "<p>Page not found</p>";
+        document.getElementById('content').innerHTML = content;
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown-menu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+         function logout() {
+            alert("Logged Out Successfully");
+            document.getElementById('content').innerHTML = '<h1>Logged Out</h1><p>Please log in again to continue.</p>';
+<!--                window.location.href = "{% url 'intro' %}";-->
+window.location.href = "/intro/";
+        }
+
+        // Set initial page
+        showPage('intro');
+
+    </script>
+    <script>
+   // Step 6: Back button logic
+    const goBack = function () {
+        window.history.back();
+    };
+    document.getElementById('backButton').addEventListener('click', goBack);
+  </script>
+
+<!--Schemes Function -->
+<script>
+    function showTab(tabId, button) {
+      document.getElementById('loans').classList.add('hidden');
+      document.getElementById('schemes').classList.add('hidden');
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.remove('hidden');
+      button.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
