@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horticulture Crops</title>
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .horticulture-container img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .horticulture-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .horticulture-wrapper {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    #content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .horticulture-text {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Removed the nav with Home link -->
+
+  <div id="content"></div>
+
+  <script>
+    const pages = {
+      'horticulture': `
+        <div class="crops-container">
+          <h1>Horticulture Crops</h1>
+          <p>Select a category to explore different horticultural crops.</p>
+          <div class="horticulture-wrapper">
+            <div class="horticulture-container" onclick="showPage('fruits')">
+              <img src="https://cdn-icons-png.flaticon.com/512/415/415744.png" alt="Fruits" />
+              <div class="horticulture-text">Fruits</div>
+            </div>
+            <div class="horticulture-container" onclick="showPage('vegetables')">
+              <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Vegetables" />
+              <div class="horticulture-text">Vegetables</div>
+            </div>
+            <div class="horticulture-container" onclick="showPage('flowers')">
+              <img src="https://cdn-icons-png.flaticon.com/512/2529/2529949.png" alt="Flowers" />
+              <div class="horticulture-text">Flowers</div>
+            </div>
+            <div class="horticulture-container" onclick="showPage('species')">
+              <img src="https://cdn-icons-png.flaticon.com/512/766/766106.png" alt="Species" />
+              <div class="horticulture-text">Species</div>
+            </div>
+          </div>
+          <button onclick="showPage('crops')">Back to Crops</button>
+        </div>
+      `,
+
+      'species': `
+        <h2>Explore Crop Details</h2>
+        <div class="horticulture-wrapper">
+          <div class="horticulture-container" onclick="showPage('chilli')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075921.png" alt="Chilli" />
+            <div class="horticulture-text">Chilli</div>
+          </div>
+        </div>
+        <button onclick="showPage('horticulture')" style="margin-top: 40px;">Back to Horticulture</button>
+      `,
+
+      'chilli': `
+        <div style="max-width: 900px; margin: auto; padding: 20px;">
+          <h1>Chilli Crop</h1>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075921.png" alt="Chilli" style="width: 100px; height: 100px;">
+            <p style="font-size: 16px; flex: 1; min-width: 250px;">Chilli is a widely grown horticulture crop known for its spice and medicinal value. Below are some common pests and diseases along with control measures.</p>
+          </div>
+
+          <div style="padding: 15px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="background-color: green; color: white; padding: 10px;">Insect/Disease</th>
+                  <th style="background-color: green; color: white; padding: 10px;">Symptoms</th>
+                  <th style="background-color: green; color: white; padding: 10px;">Control Measures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Aphids</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Leaves curl and turn yellow</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Use neem oil or insecticidal soap</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Thrips</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Silvery scars on leaves</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Apply blue sticky traps</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Powdery Mildew</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">White powdery patches on leaves</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Use sulfur-based fungicides</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Bacterial Leaf Spot</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Dark water-soaked spots on leaves</td>
+                  <td style="border: 1px solid #ccc; padding: 10px;">Apply copper-based sprays</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button onclick="showPage('species')" style="margin-top: 40px;">Back to Species</button>
+        </div>
+      `
+    };
+
+    function showPage(page) {
+      const contentDiv = document.getElementById('content');
+      contentDiv.innerHTML = '';
+      setTimeout(() => {
+        if (pages[page]) {
+          contentDiv.innerHTML = pages[page];
+        } else {
+          contentDiv.innerHTML = "<h1>Page not found</h1><p>The page you are looking for does not exist.</p>";
+        }
+      }, 100);
+    }
+
+    // Auto load the horticulture page when the page loads
+    window.onload = () => showPage('horticulture');
+  </script>
+</body>
+</html>
