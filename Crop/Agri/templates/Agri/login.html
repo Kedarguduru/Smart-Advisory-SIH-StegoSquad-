@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/dur0tj29lobr4nlg7f0j') no-repeat center center/cover;
+            color: #333;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: black;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .input-group input:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.4);
+        }
+        .btn {
+            background: #2a5298;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            transform: skewX(-45deg);
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            background: #1e3c72;
+            box-shadow: 0 0 20px rgba(42, 82, 152, 0.6);
+        }
+        .btn:active {
+            background: #1e3c72;
+            box-shadow: 0 0 30px rgba(42, 82, 152, 0.8);
+        }
+        .login-container.clicked {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .extra-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .extra-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .extra-links a:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container" id="loginContainer">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn" onclick="applyGlassEffect()">Login</button>
+        <p class="error" id="errorMessage"></p>
+    </form>
+    <div class="extra-links">
+        <a href="{% url 'forgot' %}">Forgot Password?</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("loginForm").onsubmit = function (event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("errorMessage");
+        
+        if (username === "admin" && password === "password123") {
+            alert("Login Successful!");
+            errorMessage.textContent = "";
+        } else {
+            errorMessage.textContent = "Invalid Username or Password";
+        }
+    }
+
+    function applyGlassEffect() {
+        document.getElementById("loginContainer").classList.add("clicked");
+    }
+
+    function forgotPassword() {
+        alert("Forgot Password feature coming soon!");
+    }
+
+    function signUp() {
+        alert("Sign Up feature coming soon!");
+    }
+</script>
+</body>
+</html>
