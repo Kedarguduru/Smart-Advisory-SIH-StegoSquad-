@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chili Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/dur0tj29lobr4nlg7f0j') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        .chili-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+        }
+        .chili-button {
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .chili-button img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .chili-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: black;
+            margin-top: 5px;
+        }
+        .chili-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 128, 0, 0.5);
+        }
+        .table-container {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="chili-container" id="chiliContainer" onclick="hideContainer()">
+        <div class="chili-button" onclick="showTable(event)">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075921.png" alt="Chili">
+            <div class="chili-text">Chilli Crop</div>
+        </div>
+    </div>
+
+    <div class="table-container" id="infoTable">
+        <table>
+            <tr>
+                <th>Insect/Disease</th>
+                <th>Symptoms</th>
+                <th>Control Measures</th>
+            </tr>
+            <tr>
+                <td>Aphids</td>
+                <td>Leaves curl and turn yellow</td>
+                <td>Use neem oil or insecticidal soap</td>
+            </tr>
+            <tr>
+                <td>Thrips</td>
+                <td>Silvery scars on leaves</td>
+                <td>Apply blue sticky traps</td>
+            </tr>
+            <tr>
+                <td>Powdery Mildew</td>
+                <td>White powdery patches on leaves</td>
+                <td>Use sulfur-based fungicides</td>
+            </tr>
+            <tr>
+                <td>Bacterial Leaf Spot</td>
+                <td>Dark water-soaked spots on leaves</td>
+                <td>Apply copper-based sprays</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function showTable(event) {
+            event.stopPropagation(); // Prevents hiding when clicking the button
+            document.getElementById("infoTable").style.display = "block";
+            document.getElementById("chiliContainer").style.display = "none";
+        }
+
+        function hideContainer() {
+            document.getElementById("chiliContainer").style.display = "none";
+        }
+    </script>
+</body>
+</html>
