@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop-connect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bahnschrift&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Dancing Script', cursive;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        .left-diagonal, .right-diagonal {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 50px;
+            box-sizing: border-box;
+            font-family: 'Dancing Script', cursive;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .left-diagonal {
+            left: 0;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-image: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/Pics/bm2hqludtitiv3vk9yh7');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right-diagonal {
+    right: 0;
+    background-image: url("https://res.cloudinary.com/dovax6xke/image/upload/v1743352486/pexels-dinukagunawardana-17903068_cbbcew.jpg");
+    background-size: cover; /* Ensure the image fills the div */
+    background-position: bottom center; /* Align the man’s image at the bottom */
+    background-repeat: no-repeat;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: rgba(255, 255, 255, 0.2); /* Fallback color */
+  
+
+}
+
+
+
+        .left-diagonal:hover, .right-diagonal:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .bullet-points {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 80%;
+            font-family: 'Bahnschrift', sans-serif;
+        }
+
+        .bullet-points ul {
+            padding: 0;
+            list-style-type: disc;
+        }
+
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            .slogan {
+                font-size: 1rem;
+            }
+            .bullet-points {
+                font-size: 1rem;
+            }
+        }
+        .container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.left-diagonal, .right-diagonal {
+    flex: 1;
+    height: 100%;
+    transition: flex 0.5s ease-in-out, background-size 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.left-diagonal {
+    background-image: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/Pics/bm2hqludtitiv3vk9yh7');
+}
+
+.right-diagonal {
+    background-image: url("https://res.cloudinary.com/dovax6xke/image/upload/v1743352486/pexels-dinukagunawardana-17903068_cbbcew.jpg");
+}
+
+.container:hover .left-diagonal, 
+.container:hover .right-diagonal {
+    flex: 1.2; /* Both sections grow slightly when hovering in the middle */
+}
+
+.left-diagonal:hover, 
+.right-diagonal:hover {
+    flex: 2; /* The hovered section expands more */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-diagonal" onclick="redirectToPage('main.html')">
+            <div class="title">ORGANIC</div>
+            <div class="slogan">Nature's Best, Naturally Yours</div>
+            <div class="bullet-points">
+                <ul>
+                    <li>Eco-friendly and sustainable</li>
+                    <li>Grown without synthetic pesticides</li>
+                    <li>Rich in natural nutrients</li>
+                    <li>Supports biodiversity</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-diagonal" onclick="redirectToPage('main.html')">
+            <div class="title">INORGANIC</div>
+            <div class="slogan">Innovation Powered by Precision</div>
+            <div class="bullet-points">
+                <ul>
+                    <li>Higher yield production</li>
+                    <li>Resistant to pests and diseases</li>
+                    <li>Cost-effective for large-scale farming</li>
+                    <li>Longer shelf life</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
