@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Role</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/dur0tj29lobr4nlg7f0j') no-repeat center center/cover;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 220px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 12px 24px rgba(42, 82, 152, 0.5);
+      transform: scale(1.05);
+      border: 2px solid #2a5298;
+    }
+
+    .card:hover h3 {
+      color: #2a5298;
+      font-weight: 700;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-weight: 600;
+      color: black;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Who are you ?</h1>
+
+  <div class="container">
+    <div class="card" onclick="redirectTo('farmer')">
+      <img src="https://res.cloudinary.com/dovax6xke/image/upload/v1743350356/farmer_logo-removebg-preview_gvwjdh.png" alt="Farmer">
+      <h3>Farmer</h3>
+    </div>
+
+    <div class="card" onclick="redirectTo('educator')">
+      <img src="https://res.cloudinary.com/dovax6xke/image/upload/v1743350848/edu-removebg-preview_awbxex.png" alt="Educator">
+      <h3>Educator</h3>
+    </div>
+
+    <div class="card" onclick="redirectTo('Industrialist')">
+      <img src="https://res.cloudinary.com/dovax6xke/image/upload/v1743351294/8922343-removebg-preview_oluaao.png" alt="Industrialist">
+      <h3>Industrialist</h3>
+    </div>
+  </div>
+
+  <script>
+    function redirectTo(role) {
+      if (role === "farmer") {
+        window.location.href = "{% url 'separation' %}";
+      } else {
+        window.location.href = "{% url 'login' %}";
+      }
+    }
+  </script>
+
+</body>
+</html>
