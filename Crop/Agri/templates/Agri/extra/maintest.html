@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/fs5ukivkdqcybsbfn2d6">
+    <title>CropConnect - Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">      
+</head>
+<body>
+    <div id="root"></div> 
+    <nav class="nav-container">
+        <div class="logo" onclick="showPage('intro')">
+            <img src="https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/Pics/p5pgabvnxn7nfh1mj3sf" alt="Company Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('crops')">Crops</a></li>
+            <li><a onclick="showPage('production')">Production</a></li>
+            <li><a onclick="showPage('protection')">Protection</a></li>
+            <li><a onclick="showPage('schemes')">Schemes</a></li>
+            <li><a onclick="showPage('contract')">Contract</a></li>
+            <li><a onclick="showPage('customer-care')">Customer Care</a></li>
+        </ul>
+        <div class="profile-container" onclick="toggleDropdown()">
+            <div class="profile-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Profile">
+            </div>
+            <div class="dropdown-menu">
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-area" id="content">
+        <h1>Welcome to CropConnect</h1>
+        <p>This is the intro page. Click the navigation links above to explore!</p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>© 2025 CropConnect. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+       const pages = {
+    'intro': `
+        <h1>Welcome to CropConnect</h1>
+        <p>This is the intro page. Click the navigation links above to explore!</p>
+    `,
+    'home': `
+        <h1>Home</h1>
+        <p>Welcome to your farming hub. Find all your agricultural needs here.</p>
+    `,
+    'crops': `
+        <div class="crops-container">
+            <div class="horticulture-wrapper">
+                <div class="horticulture-container" onclick="showPage('agriculture')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Agriculture">
+                    <div class="horticulture-text">Agriculture</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('horticulture')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Horticulture">
+                    <div class="horticulture-text">Horticulture</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('sericulture')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Sericulture">
+                    <div class="horticulture-text">Sericulture</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('animal_husbandry')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Animal Husbandry">
+                    <div class="horticulture-text">Animal Husbandry</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('fishery')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Fishery">
+                    <div class="horticulture-text">Fishery</div>
+                </div>
+            </div>
+        </div>
+    `,
+
+    'agriculture': `
+        <div class="crops-container">
+            <h1>Agriculture</h1>
+            <p>Select a category to explore agricultural practices.</p>
+            <div class="horticulture-wrapper">
+                <div class="horticulture-container" onclick="showPage('horticulture')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Horticulture">
+                    <div class="horticulture-text">Horticulture</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('sericulture')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Sericulture">
+                    <div class="horticulture-text">Sericulture</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('animal_husbandry')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Animal Husbandry">
+                    <div class="horticulture-text">Animal Husbandry</div>
+                </div>
+                <div class="horticulture-container" onclick="showPage('fishery')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909834.png" alt="Fishery">
+                    <div class="horticulture-text">Fishery</div>
+                </div>
+            </div>
+        </div>
+    `,
+
+    'sericulture': `
+        <div class="crops-container">
+            <h1>Sericulture</h1>
+            <p>Learn about silkworm rearing and silk production.</p>
+            <ul>
+                <li>Mulberry Cultivation</li>
+                <li>Silkworm Rearing</li>
+                <li>Silk Processing</li>
+            </ul>
+        </div>
+    `,
+
+    'animal_husbandry': `
+        <div class="crops-container">
+            <h1>Animal Husbandry</h1>
+            <p>Explore livestock management and dairy farming.</p>
+            <ul>
+                <li>Cattle Farming</li>
+                <li>Poultry Farming</li>
+                <li>Goat and Sheep Rearing</li>
+            </ul>
+        </div>
+    `,
+
+    'fishery': `
+        <div class="crops-container">
+            <h1>Fishery</h1>
+            <p>Explore fish farming and aquaculture techniques.</p>
+            <ul>
+                <li>Freshwater Fishery</li>
+                <li>Marine Fishery</li>
+                <li>Prawn and Shrimp Farming</li>
+            </ul>
+        </div>
+    `,
+
+
+
+            'production': `
+                <h1>Production</h1>
+                <p>Learn about modern farming techniques and production methods.</p>
+            `,
+            'protection': `
+                <h1>Protection</h1>
+                <p>Discover crop protection solutions and pest management.</p>
+            `,
+            'schemes': `
+                <h1>Schemes</h1>
+                <p>Find government schemes and subsidies for farmers.</p>
+            `,
+            'contract': `
+                <h1>Contract</h1>
+                <p>Information about contract farming opportunities.</p>
+            `,
+            'customer-care': `
+                <h1>Customer Care</h1>
+                <p>Contact our support team for assistance.</p>
+            `
+        };
+
+        function showPage(page) {
+            document.getElementById('content').innerHTML = pages[page] || pages['intro'];
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown-menu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function logout() {
+            alert("Logged Out Successfully");
+            document.getElementById('content').innerHTML = '<h1>Logged Out</h1><p>Please log in again to continue.</p>';
+            window.location.href="intro.html";
+        }
+ 
+        // Set initial page
+        showPage('intro');
+    </script>
+    
+</body>
+</html>
