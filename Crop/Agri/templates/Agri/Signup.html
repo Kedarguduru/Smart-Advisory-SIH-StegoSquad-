@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+
+  <!-- Import both Poppins and Dancing Script Bold -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+  </style>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/i6fhgriufmau6tsdwrwl') no-repeat center center/cover;
+      overflow: hidden;
+        color: black;
+    }
+
+    .container {
+  width: 400px;
+  padding: 40px;
+  border-radius: 16px;
+
+  /* Set background to a more transparent level */
+  background: rgba(255, 255, 255, 0.05);
+
+  /* Remove blur or reduce it to keep background image clear */
+  backdrop-filter: none; /* or blur(5px) if you want slight blur */
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 40px;
+      color: black;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 5px 10px 0;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      background: transparent;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 16px;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-bottom: 2px solid #28a745;
+      box-shadow: 0 2px 6px rgba(40, 167, 69, 0.4);
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.2s ease all;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -14px;
+      font-size: 13px;
+      color: white;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0 6px;
+      border-radius: 4px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #28a745, #218838);
+      border: none;
+      border-radius: 8px;
+      color: whitesmoke;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-45deg);
+      transition: all 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 20px rgba(40, 167, 69, 0.4);
+    }
+
+    .extra-links {
+      margin-top: 20px;
+    }
+
+    .extra-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .extra-links a:hover {
+      color: #c3ffbd;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Create Account</h1>
+  <form>
+    <div class="input-group">
+        {{ form.username.label_tag }}
+      {{ form.username }}
+      <input type="text" id="username" placeholder=" " required>
+      <label for="username">Username</label>
+    </div>
+    <div class="input-group">
+          {{ form.email.label_tag }}
+      {{ form.email }}
+      <input type="email" id="email" placeholder=" " required>
+      <label for="email">Email Address</label>
+    </div>
+      <div class="input-group">
+  <label for="country_code">Phone Number</label>
+  <div style="display: flex; gap: 8px;">
+    <!-- Country Code Dropdown -->
+    <select id="country_code" name="country_code" required>
+      <option value="+91" selected>🇮🇳 +91 (India)</option>
+      <option value="+1">🇺🇸 +1 (USA)</option>
+      <option value="+44">🇬🇧 +44 (UK)</option>
+      <option value="+61">🇦🇺 +61 (Australia)</option>
+    </select>
+
+    <!-- Phone Number Input -->
+    <input type="tel" id="phone" name="phone"
+           placeholder="9876543210"
+           pattern="[0-9]{10}" required>
+  </div>
+</div>
+    <div class="input-group">
+         {{ form.password.label_tag }}
+      {{ form.password }}
+      <input type="password" id="password" placeholder=" " required>
+      <label for="password">Password</label>
+    </div>
+    <button type="submit" class="btn">Sign Up</button>
+  </form>
+  <div class="extra-links">
+    <a href="{% url 'login' %}">Already have an account? Log in</a>
+  </div>
+</div>
+</body>
+</html>
