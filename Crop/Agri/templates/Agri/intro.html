@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop-connect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background-image: url("https://res.cloudinary.com/dovax6xke/image/upload/f_auto,q_auto/v1/carrier/wq3s9m94funicouunenp");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+        }
+
+        h1 {
+            font-size: 6rem;
+            color: #ffffff;
+            animation: typing 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 10px;
+            animation: typing 4s cubic-bezier(0.4, 0, 0.2, 1) forwards 5s;
+        }
+
+        @keyframes typing {
+            from { width: 0; opacity: 0; }
+            to { width: 100%; opacity: 1; }
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'roles' %}" style="text-decoration: none; color: inherit;">
+            <h1>Crop-Connect</h1>
+            <h2>Connecting Farmers to Markets</h2>
+        </a>
+    </div>
+</body>
+</html>
