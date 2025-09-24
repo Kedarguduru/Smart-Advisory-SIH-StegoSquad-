@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Farming Hub</title>
+    {% load static %}
+</head>
+<body>
+    <div id="content"></div>
+
+    <!-- Include your JS logic -->
+    <script src="{% static 'your_app/js/pages.js' %}"></script>
+
+    <!-- Page loader script -->
+    <script>
+        // Example: load the "home" page content using fetch
+        function loadPage(Main) {
+            fetch(/${Main}/)  // call Django view
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("content").innerHTML = html;
+                });
+        }
+
+        // Load 'home' by default
+        loadPage("home");
+    </script>
+</body>
+</html>
